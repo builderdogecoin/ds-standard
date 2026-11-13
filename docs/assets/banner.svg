@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="The Doge Soft Standard: one tiny tag, much meaning">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1713"/>
+      <stop offset="1" stop-color="#1d2b22"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f6c453"/>
+      <stop offset="1" stop-color="#e0a526"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="320" rx="28" fill="url(#bg)"/>
+  <g fill="#f6c453" opacity="0.16" font-family="'Comic Sans MS','Comic Neue',cursive" font-size="22">
+    <text x="980" y="70">much meaning</text>
+    <text x="1040" y="140">very open</text>
+    <text x="1000" y="210">such tag</text>
+    <text x="1080" y="270">wow</text>
+  </g>
+  <text x="64" y="118" fill="url(#gold)" font-family="'Space Grotesk','DM Sans',Arial,sans-serif" font-weight="700" font-size="64">The Doge Soft Standard</text>
+  <text x="64" y="168" fill="#e8efe9" font-family="'DM Sans',Arial,sans-serif" font-size="28">One tiny tag that tells every Dogecoin app what a transaction means.</text>
+  <rect x="64" y="200" width="760" height="64" rx="14" fill="#08100c" stroke="#f6c453" stroke-opacity="0.5"/>
+  <text x="88" y="241" fill="#f6c453" font-family="'DM Mono',Consolas,monospace" font-size="26">{"ds":{"action":"BUY","ref":"dogesoft.io/r_1"}}</text>
+</svg>

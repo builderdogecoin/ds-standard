@@ -1,0 +1,27 @@
+name: Such Verb Proposal
+description: Propose a new verb, ref domain or rule. Much idea, very welcome.
+title: "[SVP] "
+labels: ["proposal"]
+body:
+  - type: input
+    id: verb
+    attributes:
+      label: Verb(s)
+      placeholder: NEW_VERB
+    validations: { required: true }
+  - type: textarea
+    id: moves
+    attributes:
+      label: What moves on chain?
+      description: Which transaction carries the tag, and who signs what.
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes:
+      label: Why no existing verb fits
+    validations: { required: true }
+  - type: textarea
+    id: tag
+    attributes:
+      label: Example tag and its byte length
+      render: json

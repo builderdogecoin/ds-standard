@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/builderdogecoin/ds-standard/blob/main/schema/launch-deploy.schema.json",
+  "title": "LAUNCH_DEPLOY collection record",
+  "description": "A creator-signed collection record. sig is the creator signmessage over \"Doge Soft\" + newline + the record JSON without sig. Royalty stays here and is never copied into a marketplace tag.",
+  "type": "object",
+  "properties": {
+    "ds": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "const": "LAUNCH_DEPLOY"
+        },
+        "ref": {
+          "type": "string",
+          "pattern": "^(?:dogesoft\\.io/)?lp_.+$"
+        }
+      },
+      "required": [
+        "action",
+        "ref"
+      ],
+      "additionalProperties": false
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "supply": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "royalty_bps": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000,
+      "multipleOf": 100,
+      "description": "A whole percent in basis points."
+    },
+    "pay_to": {
+      "type": "string",
+      "pattern": "^D[1-9A-HJ-NP-Za-km-z]{25,34}$",
+      "description": "The D-address that receives the royalty."
+    },
+    "sig": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "ds",
+    "name",
+    "supply",
+    "royalty_bps",
+    "pay_to",
+    "sig"
+  ]
+}

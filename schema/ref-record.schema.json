@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/builderdogecoin/ds-standard/blob/main/schema/ref-record.schema.json",
+  "title": "Signed ref record",
+  "description": "A signed record as the orbit serves it at GET /ds/ref/<ref>. sig is a Dogecoin signmessage by signer over message_prefix + JSON.stringify(record). Only record, signer and sig are needed to verify.",
+  "type": "object",
+  "properties": {
+    "record": {
+      "type": "object",
+      "description": "The record. Sale records carry ref, action, actor, target, body, proof, txid, ts and state.",
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "BUY",
+            "AUCTION_SOLD",
+            "OFFER_ACCEPT",
+            "GIFT",
+            "BUNDLE",
+            "PARTIAL_FILL",
+            "COLLECTION_TRANSFER",
+            "TIP",
+            "REVEAL",
+            "BOOST",
+            "LAUNCH_DEPLOY",
+            "LAUNCH_MINT",
+            "GOV_CREATE",
+            "GOV_UPDATE",
+            "GOV_PROPOSE",
+            "GOV_VOTE",
+            "GOV_FINALIZE",
+            "GOV_EXECUTE",
+            "GOV_CANCEL",
+            "GOV_DELEGATE",
+            "GOV_APPOINT",
+            "GOV_REMOVE",
+            "GOV_RESIGN",
+            "GOV_TRANSFER_AUTHORITY",
+            "ANCHOR",
+            "REFUND",
+            "BRIDGE_L1_DEPOSIT",
+            "BRIDGE_L1_RELEASE",
+            "BRIDGE_L2_INTENT"
+          ]
+        }
+      },
+      "required": [
+        "ref",
+        "action"
+      ]
+    },
+    "signer": {
+      "type": "string",
+      "pattern": "^D[1-9A-HJ-NP-Za-km-z]{25,34}$",
+      "description": "The D-address that signed."
+    },
+    "sig": {
+      "type": "string",
+      "description": "Base64 signmessage signature (65 bytes)."
+    },
+    "message_prefix": {
+      "const": "Doge Soft\n"
+    },
+    "signed": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "record",
+    "signer",
+    "sig"
+  ]
+}

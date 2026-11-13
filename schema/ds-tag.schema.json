@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/builderdogecoin/ds-standard/blob/main/schema/ds-tag.schema.json",
+  "title": "ds tag",
+  "description": "The object under \"ds\": an UPPERCASE action and an optional ref. Nothing else sits inside ds. Area rules (social and bridge refs) are in SPEC.md and the reference parser.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "description": "An UPPERCASE verb from the registry.",
+      "enum": [
+        "BUY",
+        "AUCTION_SOLD",
+        "OFFER_ACCEPT",
+        "GIFT",
+        "BUNDLE",
+        "PARTIAL_FILL",
+        "COLLECTION_TRANSFER",
+        "TIP",
+        "REVEAL",
+        "BOOST",
+        "LAUNCH_DEPLOY",
+        "LAUNCH_MINT",
+        "GOV_CREATE",
+        "GOV_UPDATE",
+        "GOV_PROPOSE",
+        "GOV_VOTE",
+        "GOV_FINALIZE",
+        "GOV_EXECUTE",
+        "GOV_CANCEL",
+        "GOV_DELEGATE",
+        "GOV_APPOINT",
+        "GOV_REMOVE",
+        "GOV_RESIGN",
+        "GOV_TRANSFER_AUTHORITY",
+        "ANCHOR",
+        "REFUND",
+        "BRIDGE_L1_DEPOSIT",
+        "BRIDGE_L1_RELEASE",
+        "BRIDGE_L2_INTENT"
+      ]
+    },
+    "ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "<domain>/<local>. The only domain is dogesoft.io. Bare legacy refs without a domain still resolve on dogesoft.io.",
+      "pattern": "^(?:dogesoft\\.io/)?[^\\s/][^\\s]*$"
+    }
+  },
+  "required": [
+    "action"
+  ],
+  "additionalProperties": false
+}

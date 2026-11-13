@@ -1,0 +1,36 @@
+{
+  "$comment": "The Doge Soft Standard verb registry, v1.0.0. 29 verbs in 6 areas.",
+  "version": "1.0.0",
+  "areas": [
+    {
+      "area": "Marketplace",
+      "verbs": ["BUY", "AUCTION_SOLD", "OFFER_ACCEPT", "GIFT", "BUNDLE", "PARTIAL_FILL", "COLLECTION_TRANSFER"],
+      "rides": "One OP_RETURN note on the transaction that spends the dog, after the seller's payment output."
+    },
+    {
+      "area": "Social",
+      "verbs": ["TIP", "REVEAL", "BOOST"],
+      "rides": "One tag on the transaction that pays for a post or profile: an OP_RETURN note on a DOGE payment, or the ds field of a DRC-20 transfer."
+    },
+    {
+      "area": "Launchpad",
+      "verbs": ["LAUNCH_DEPLOY", "LAUNCH_MINT"],
+      "rides": "LAUNCH_DEPLOY is the inscribed collection record. LAUNCH_MINT is the tag on the buyer's mint transaction."
+    },
+    {
+      "area": "Governance",
+      "verbs": ["GOV_CREATE", "GOV_UPDATE", "GOV_PROPOSE", "GOV_VOTE", "GOV_FINALIZE", "GOV_EXECUTE", "GOV_CANCEL", "GOV_DELEGATE", "GOV_APPOINT", "GOV_REMOVE", "GOV_RESIGN", "GOV_TRANSFER_AUTHORITY"],
+      "rides": "The inscription is the decision: an application/json body with ds beside the rules."
+    },
+    {
+      "area": "Security",
+      "verbs": ["ANCHOR", "REFUND"],
+      "rides": "Proof anchors and refunds from Doge Soft services."
+    },
+    {
+      "area": "Bridge",
+      "verbs": ["BRIDGE_L1_DEPOSIT", "BRIDGE_L1_RELEASE", "BRIDGE_L2_INTENT"],
+      "rides": "text/plain;charset=utf8 inscriptions created only by Doge Soft services (Soft Bridge)."
+    }
+  ]
+}

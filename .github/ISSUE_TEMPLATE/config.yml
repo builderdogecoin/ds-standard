@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Doge Soft Docs
+    url: https://docs.dogesoft.io/inscription-standard/
+    about: The inscription standard in the full Doge Soft docs.
+  - name: Report a security vulnerability
+    url: https://github.com/builderdogecoin/ds-standard/security/advisories/new
+    about: Please report security issues confidentially, not in a public issue.

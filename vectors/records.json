@@ -1,0 +1,178 @@
+{
+  "description": "Signed ref records as the orbit serves them. The signature is a Dogecoin signmessage over \"Doge Soft\" + newline + JSON.stringify(record), exactly as served (field order matters).",
+  "prefix": "Doge Soft\n",
+  "vectors": [
+    {
+      "name": "live Doge Soft sale record r_2",
+      "envelope": {
+        "record": {
+          "ref": "r_2",
+          "action": "BUY",
+          "actor": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik",
+          "target": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+          "body": {
+            "inscription": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+            "price": 100000000,
+            "seller": "DLJRAQxPQj9xSzmwvcRP1QzHAS9CJPo2RU",
+            "buyer": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik"
+          },
+          "proof": "tx:e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "txid": "e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "ts": 1792630063,
+          "state": "confirmed"
+        },
+        "signer": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "INcx1Fzth3F0TIKVmnthgUIlJvhhVhowk4v3qvdMjF+VRQOl685tog5vODxrctCYpr5vpDbLZXs1o0jeKevCUT0="
+      },
+      "valid": true
+    },
+    {
+      "name": "live Doge Soft sale record r_5",
+      "envelope": {
+        "record": {
+          "ref": "r_5",
+          "action": "BUY",
+          "actor": "DEpXQrzfRfM4KN7sC2ne557CWtRpH2tySH",
+          "target": "ce876dd4bf5ca1181c0ef876bc71a452c7e6e825f7a5627a99fad5e2ca6f5823i0",
+          "body": {
+            "inscription": "ce876dd4bf5ca1181c0ef876bc71a452c7e6e825f7a5627a99fad5e2ca6f5823i0",
+            "tick": "dmmg",
+            "amount": "1000",
+            "price": 100000000,
+            "seller": "DSXoyD5YKQYLMtZNzd7otbTxPbacN6oASd",
+            "buyer": "DEpXQrzfRfM4KN7sC2ne557CWtRpH2tySH"
+          },
+          "proof": "tx:565c32ea693580905ba58dd3930ec60f60ce17de88f79887a30073ac147416d8",
+          "txid": "565c32ea693580905ba58dd3930ec60f60ce17de88f79887a30073ac147416d8",
+          "ts": 1794477136,
+          "state": "confirmed"
+        },
+        "signer": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "IAYLNSfG74zuoCDlFniVWAmrx9NhAGKS+rPorAwJI6htC1rMcSGD/M4Ky5WlTXf5HOdipclXnE/9uglbyA27Ua0="
+      },
+      "valid": true
+    },
+    {
+      "name": "live Doge Soft sale record r_6",
+      "envelope": {
+        "record": {
+          "ref": "r_6",
+          "action": "BUY",
+          "actor": "DEpXQrzfRfM4KN7sC2ne557CWtRpH2tySH",
+          "target": "2b08f61ae9e541cacef1f399062b4fe4803cf786e1cce79a24aafcc5fa9b9531i0",
+          "body": {
+            "inscription": "2b08f61ae9e541cacef1f399062b4fe4803cf786e1cce79a24aafcc5fa9b9531i0",
+            "tick": "dmmg",
+            "amount": "1000",
+            "price": 100000000,
+            "seller": "DSXoyD5YKQYLMtZNzd7otbTxPbacN6oASd",
+            "buyer": "DEpXQrzfRfM4KN7sC2ne557CWtRpH2tySH"
+          },
+          "proof": "tx:04d3e5ffba0fe45f8080f04914ebd17a093a58445e6b3ce773f129712d506aaa",
+          "txid": "04d3e5ffba0fe45f8080f04914ebd17a093a58445e6b3ce773f129712d506aaa",
+          "ts": 1794478531,
+          "state": "confirmed"
+        },
+        "signer": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "ID4DoM8a3IX924z8MTRR8gSbC1w8sETKvfv+edgYMzgZdO+szRk/P/wdFzzcs5xU4SjrcR5n6K0ewtycDNhR2C0="
+      },
+      "valid": true
+    },
+    {
+      "name": "price changed after signing",
+      "envelope": {
+        "record": {
+          "ref": "r_2",
+          "action": "BUY",
+          "actor": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik",
+          "target": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+          "body": {
+            "inscription": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+            "price": 1,
+            "seller": "DLJRAQxPQj9xSzmwvcRP1QzHAS9CJPo2RU",
+            "buyer": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik"
+          },
+          "proof": "tx:e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "txid": "e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "ts": 1792630063,
+          "state": "confirmed"
+        },
+        "signer": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "INcx1Fzth3F0TIKVmnthgUIlJvhhVhowk4v3qvdMjF+VRQOl685tog5vODxrctCYpr5vpDbLZXs1o0jeKevCUT0="
+      },
+      "valid": false
+    },
+    {
+      "name": "same fields in another order is a different message",
+      "envelope": {
+        "record": {
+          "action": "BUY",
+          "actor": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik",
+          "target": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+          "body": {
+            "inscription": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+            "price": 100000000,
+            "seller": "DLJRAQxPQj9xSzmwvcRP1QzHAS9CJPo2RU",
+            "buyer": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik"
+          },
+          "proof": "tx:e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "txid": "e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "ts": 1792630063,
+          "state": "confirmed",
+          "ref": "r_2"
+        },
+        "signer": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "INcx1Fzth3F0TIKVmnthgUIlJvhhVhowk4v3qvdMjF+VRQOl685tog5vODxrctCYpr5vpDbLZXs1o0jeKevCUT0="
+      },
+      "valid": false
+    },
+    {
+      "name": "wrong signer",
+      "envelope": {
+        "record": {
+          "ref": "r_2",
+          "action": "BUY",
+          "actor": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik",
+          "target": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+          "body": {
+            "inscription": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+            "price": 100000000,
+            "seller": "DLJRAQxPQj9xSzmwvcRP1QzHAS9CJPo2RU",
+            "buyer": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik"
+          },
+          "proof": "tx:e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "txid": "e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "ts": 1792630063,
+          "state": "confirmed"
+        },
+        "signer": "DLJRAQxPQj9xSzmwvcRP1QzHAS9CJPo2RU",
+        "sig": "INcx1Fzth3F0TIKVmnthgUIlJvhhVhowk4v3qvdMjF+VRQOl685tog5vODxrctCYpr5vpDbLZXs1o0jeKevCUT0="
+      },
+      "valid": false
+    },
+    {
+      "name": "signature from another record",
+      "envelope": {
+        "record": {
+          "ref": "r_2",
+          "action": "BUY",
+          "actor": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik",
+          "target": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+          "body": {
+            "inscription": "2c923b6c2e17cbaae815a297e8977f14de9c920ecce40021a5a5a36d7f1b03bai0",
+            "price": 100000000,
+            "seller": "DLJRAQxPQj9xSzmwvcRP1QzHAS9CJPo2RU",
+            "buyer": "DEizTLhDo3922KKwu4x4hz5JK7AstDGjik"
+          },
+          "proof": "tx:e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "txid": "e5517e54a0aadbeda89d2f6ffcf91d59663cd7cff4082573f971bfb2c39b8815",
+          "ts": 1792630063,
+          "state": "confirmed"
+        },
+        "signer": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "IAYLNSfG74zuoCDlFniVWAmrx9NhAGKS+rPorAwJI6htC1rMcSGD/M4Ky5WlTXf5HOdipclXnE/9uglbyA27Ua0="
+      },
+      "valid": false
+    }
+  ]
+}

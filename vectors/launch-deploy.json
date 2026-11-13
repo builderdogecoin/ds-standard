@@ -1,0 +1,163 @@
+{
+  "description": "LAUNCH_DEPLOY collection record shapes. These check structure only; sig values here are placeholders.",
+  "vectors": [
+    {
+      "name": "documented example shape",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs"
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 500,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "royalty of 0",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs"
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 0,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "royalty not a whole percent",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs"
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 250,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": false,
+      "errors": [
+        "royalty_bps"
+      ]
+    },
+    {
+      "name": "royalty over 100%",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs"
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 10100,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": false,
+      "errors": [
+        "royalty_bps"
+      ]
+    },
+    {
+      "name": "pay_to is not a D-address",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs"
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 500,
+        "pay_to": "Dnotanaddress",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": false,
+      "errors": [
+        "pay_to"
+      ]
+    },
+    {
+      "name": "ref is a sale record, not a collection",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/r_1"
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 500,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": false,
+      "errors": [
+        "ref_not_collection"
+      ]
+    },
+    {
+      "name": "royalty copied into ds",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs",
+          "royalty_bps": 500
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 500,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": false,
+      "errors": [
+        "ds_extra_field"
+      ]
+    },
+    {
+      "name": "missing sig",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs"
+        },
+        "name": "Moon Dogs",
+        "supply": 100,
+        "royalty_bps": 500,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw"
+      },
+      "valid": false,
+      "errors": [
+        "sig"
+      ]
+    },
+    {
+      "name": "supply of 0",
+      "record": {
+        "ds": {
+          "action": "LAUNCH_DEPLOY",
+          "ref": "dogesoft.io/lp_moon-dogs"
+        },
+        "name": "Moon Dogs",
+        "supply": 0,
+        "royalty_bps": 500,
+        "pay_to": "D9m4ufeHBjLSR8tStQopLs8BQBVoDzbQtw",
+        "sig": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      "valid": false,
+      "errors": [
+        "supply"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@dogesoftio/ds-standard",
+  "version": "1.0.0",
+  "description": "The Doge Soft Standard (ds): reference parser and validator. Zero dependencies.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "ds": "./bin/ds.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "schema",
+    "SPEC.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "homepage": "https://github.com/builderdogecoin/ds-standard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/builderdogecoin/ds-standard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/builderdogecoin/ds-standard/issues"
+  },
+  "author": "Doge Soft <koinu@dogesoft.io>",
+  "license": "Apache-2.0",
+  "sideEffects": false
+}

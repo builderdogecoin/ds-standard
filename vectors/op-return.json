@@ -1,0 +1,159 @@
+{
+  "description": "OP_RETURN output scripts. A note is OP_RETURN (0x6a) then one push of the UTF-8 JSON: one length byte up to 75 bytes, or 0x4c and a length byte from 76 bytes. At most 80 bytes of data.",
+  "decode": [
+    {
+      "name": "real mainnet note (block 6,454,390)",
+      "script": "6a2f7b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f36227d7d",
+      "valid": true,
+      "errors": [],
+      "text": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_6\"}}"
+    },
+    {
+      "name": "75-byte note",
+      "script": "6a4b7b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f3131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": true,
+      "errors": [],
+      "text": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_11111111111111111111111111111\"}}",
+      "bytes": 75
+    },
+    {
+      "name": "76-byte note",
+      "script": "6a4c4c7b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f313131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": true,
+      "errors": [],
+      "text": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_111111111111111111111111111111\"}}",
+      "bytes": 76
+    },
+    {
+      "name": "79-byte note",
+      "script": "6a4c4f7b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f313131313131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": true,
+      "errors": [],
+      "text": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_111111111111111111111111111111111\"}}",
+      "bytes": 79
+    },
+    {
+      "name": "80-byte note",
+      "script": "6a4c507b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f31313131313131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": true,
+      "errors": [],
+      "text": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_1111111111111111111111111111111111\"}}",
+      "bytes": 80
+    },
+    {
+      "name": "81-byte note is too big",
+      "script": "6a4c517b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f3131313131313131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": false,
+      "errors": [
+        "note_too_big"
+      ],
+      "bytes": 81
+    },
+    {
+      "name": "a 33-character post id fits REVEAL in exactly 80 bytes",
+      "script": "6a4c507b226473223a7b22616374696f6e223a2252455645414c222c22726566223a22646f6765736f66742e696f2f705f31313131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": true,
+      "errors": [],
+      "text": "{\"ds\":{\"action\":\"REVEAL\",\"ref\":\"dogesoft.io/p_1111111111111111111111111111111\"}}",
+      "bytes": 80
+    },
+    {
+      "name": "a 34-character post id does not fit",
+      "script": "6a4c517b226473223a7b22616374696f6e223a2252455645414c222c22726566223a22646f6765736f66742e696f2f705f3131313131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": false,
+      "errors": [
+        "note_too_big"
+      ],
+      "bytes": 81
+    },
+    {
+      "name": "75 bytes pushed with 0x4c is not the standard push",
+      "script": "6a4c4b7b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f3131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": false,
+      "errors": [
+        "push_not_minimal"
+      ]
+    },
+    {
+      "name": "OP_PUSHDATA2 is not used",
+      "script": "6a4d4b007b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f3131313131313131313131313131313131313131313131313131313131227d7d",
+      "valid": false,
+      "errors": [
+        "push_form"
+      ]
+    },
+    {
+      "name": "bytes after the push",
+      "script": "6a327b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f31313131227d7d00",
+      "valid": false,
+      "errors": [
+        "trailing_bytes"
+      ]
+    },
+    {
+      "name": "push longer than the script",
+      "script": "6a407b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f31313131227d7d",
+      "valid": false,
+      "errors": [
+        "push_truncated"
+      ]
+    },
+    {
+      "name": "not an OP_RETURN",
+      "script": "76a914000000000000000000000000000000000000000088ac",
+      "valid": false,
+      "errors": [
+        "not_op_return"
+      ]
+    },
+    {
+      "name": "OP_RETURN with no push",
+      "script": "6a",
+      "valid": false,
+      "errors": [
+        "no_push"
+      ]
+    },
+    {
+      "name": "not UTF-8",
+      "script": "6a03c328ff",
+      "valid": false,
+      "errors": [
+        "not_utf8"
+      ]
+    },
+    {
+      "name": "lowercase action inside a well-formed note",
+      "script": "6a2f7b226473223a7b22616374696f6e223a22627579222c22726566223a22646f6765736f66742e696f2f725f31227d7d",
+      "valid": false,
+      "errors": [
+        "action_not_uppercase"
+      ]
+    },
+    {
+      "name": "extra field inside ds",
+      "script": "6a357b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f31222c2278223a317d7d",
+      "valid": false,
+      "errors": [
+        "ds_extra_field"
+      ]
+    }
+  ],
+  "encode": [
+    {
+      "action": "BUY",
+      "ref": "dogesoft.io/r_1",
+      "script": "6a2f7b226473223a7b22616374696f6e223a22425559222c22726566223a22646f6765736f66742e696f2f725f31227d7d"
+    },
+    {
+      "action": "TIP",
+      "ref": "dogesoft.io/p_123",
+      "script": "6a317b226473223a7b22616374696f6e223a22544950222c22726566223a22646f6765736f66742e696f2f705f313233227d7d"
+    },
+    {
+      "action": "REVEAL",
+      "ref": "dogesoft.io/p_1111111111111111111111111111111",
+      "script": "6a4c507b226473223a7b22616374696f6e223a2252455645414c222c22726566223a22646f6765736f66742e696f2f705f31313131313131313131313131313131313131313131313131313131313131227d7d"
+    }
+  ]
+}

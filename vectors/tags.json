@@ -1,0 +1,375 @@
+{
+  "description": "ds tags. kind \"note\" is the full text of an OP_RETURN note (exactly {\"ds\":{...}}). kind \"body\" is an inscription body that carries ds beside other fields.",
+  "vectors": [
+    {
+      "name": "marketplace BUY with domain ref",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_1\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "bare legacy ref still resolves",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"r_2\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "every marketplace verb has the same shape: OFFER_ACCEPT",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"OFFER_ACCEPT\",\"ref\":\"dogesoft.io/r_42\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "AUCTION_SOLD",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"AUCTION_SOLD\",\"ref\":\"dogesoft.io/r_7\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "GIFT",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"GIFT\",\"ref\":\"dogesoft.io/r_8\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "BUNDLE",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUNDLE\",\"ref\":\"dogesoft.io/r_9\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "PARTIAL_FILL",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"PARTIAL_FILL\",\"ref\":\"dogesoft.io/r_10\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "COLLECTION_TRANSFER",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"COLLECTION_TRANSFER\",\"ref\":\"dogesoft.io/r_11\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "social TIP on a post",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"TIP\",\"ref\":\"dogesoft.io/p_123\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "social REVEAL",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"REVEAL\",\"ref\":\"dogesoft.io/p_456\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "bare social ref resolves on dogesoft.io",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"TIP\",\"ref\":\"p_123\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "social BOOST",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BOOST\",\"ref\":\"dogesoft.io/p_123\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "DRC-20 transfer with a BUY tag",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"1000\",\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_1\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "DRC-20 TIP",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"5\",\"ds\":{\"action\":\"TIP\",\"ref\":\"dogesoft.io/p_123\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "DRC-20 REVEAL",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"50\",\"ds\":{\"action\":\"REVEAL\",\"ref\":\"dogesoft.io/p_456\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "DRC-20 BOOST",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"10\",\"ds\":{\"action\":\"BOOST\",\"ref\":\"dogesoft.io/p_123\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "bridge deposit with a 32-byte ref",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"1000\",\"ds\":{\"action\":\"BRIDGE_L1_DEPOSIT\",\"ref\":\"0xabababababababababababababababababababababababababababababababab\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "bridge release with its request id",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"1000\",\"ds\":{\"action\":\"BRIDGE_L1_RELEASE\",\"ref\":\"42\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "governance action with no ref (ref is optional)",
+      "kind": "body",
+      "input": "{\"ds\":{\"action\":\"GOV_VOTE\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "governance action with a ref",
+      "kind": "body",
+      "input": "{\"ds\":{\"action\":\"GOV_PROPOSE\",\"ref\":\"dogesoft.io/r_77\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "security ANCHOR",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"ANCHOR\",\"ref\":\"dogesoft.io/r_5\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "LAUNCH_MINT",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"LAUNCH_MINT\",\"ref\":\"dogesoft.io/lp_moon-dogs\"}}",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "name": "lowercase action",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"buy\",\"ref\":\"dogesoft.io/r_1\"}}",
+      "valid": false,
+      "errors": [
+        "action_not_uppercase"
+      ]
+    },
+    {
+      "name": "mixed-case action",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"Buy\",\"ref\":\"dogesoft.io/r_1\"}}",
+      "valid": false,
+      "errors": [
+        "action_not_uppercase"
+      ]
+    },
+    {
+      "name": "unknown verb",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"SELL\",\"ref\":\"dogesoft.io/r_1\"}}",
+      "valid": false,
+      "errors": [
+        "action_unknown"
+      ]
+    },
+    {
+      "name": "missing action",
+      "kind": "note",
+      "input": "{\"ds\":{\"ref\":\"dogesoft.io/r_1\"}}",
+      "valid": false,
+      "errors": [
+        "action_missing"
+      ]
+    },
+    {
+      "name": "action is not a string",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":1,\"ref\":\"dogesoft.io/r_1\"}}",
+      "valid": false,
+      "errors": [
+        "action_missing"
+      ]
+    },
+    {
+      "name": "extra field inside ds (price)",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_1\",\"price\":100}}",
+      "valid": false,
+      "errors": [
+        "ds_extra_field"
+      ]
+    },
+    {
+      "name": "extra field inside ds (royalty)",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"1000\",\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_1\",\"royalty_bps\":500}}",
+      "valid": false,
+      "errors": [
+        "ds_extra_field"
+      ]
+    },
+    {
+      "name": "ds is not an object",
+      "kind": "note",
+      "input": "{\"ds\":\"BUY\"}",
+      "valid": false,
+      "errors": [
+        "ds_not_object"
+      ]
+    },
+    {
+      "name": "ds is an array",
+      "kind": "note",
+      "input": "{\"ds\":[\"BUY\"]}",
+      "valid": false,
+      "errors": [
+        "ds_not_object"
+      ]
+    },
+    {
+      "name": "note carries something beside ds",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_1\"},\"price\":100}",
+      "valid": false,
+      "errors": [
+        "note_extra_field"
+      ]
+    },
+    {
+      "name": "no ds at all",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"1000\"}",
+      "valid": false,
+      "errors": [
+        "ds_missing"
+      ]
+    },
+    {
+      "name": "not JSON",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\"",
+      "valid": false,
+      "errors": [
+        "not_json"
+      ]
+    },
+    {
+      "name": "ref with empty local",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/\"}}",
+      "valid": false,
+      "errors": [
+        "ref_format"
+      ]
+    },
+    {
+      "name": "ref with empty domain",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"/r_1\"}}",
+      "valid": false,
+      "errors": [
+        "ref_format"
+      ]
+    },
+    {
+      "name": "ref with a space",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r 1\"}}",
+      "valid": false,
+      "errors": [
+        "ref_format"
+      ]
+    },
+    {
+      "name": "ref is empty",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"\"}}",
+      "valid": false,
+      "errors": [
+        "ref_empty"
+      ]
+    },
+    {
+      "name": "ref is a number",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":1}}",
+      "valid": false,
+      "errors": [
+        "ref_not_string"
+      ]
+    },
+    {
+      "name": "ref on a domain other than dogesoft.io",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"example.com/r_1\"}}",
+      "valid": false,
+      "errors": [
+        "ref_domain"
+      ]
+    },
+    {
+      "name": "sale ref that is not r_<n>",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BUY\",\"ref\":\"dogesoft.io/r_abc\"}}",
+      "valid": false,
+      "errors": [
+        "ref_local"
+      ]
+    },
+    {
+      "name": "collection ref with no slug",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"LAUNCH_MINT\",\"ref\":\"dogesoft.io/lp_\"}}",
+      "valid": false,
+      "errors": [
+        "ref_local"
+      ]
+    },
+    {
+      "name": "social ref on another domain",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"TIP\",\"ref\":\"example.com/p_123\"}}",
+      "valid": false,
+      "errors": [
+        "ref_domain"
+      ]
+    },
+    {
+      "name": "social tag with no ref",
+      "kind": "note",
+      "input": "{\"ds\":{\"action\":\"BOOST\"}}",
+      "valid": false,
+      "errors": [
+        "ref_required"
+      ]
+    },
+    {
+      "name": "bridge deposit ref that is not a 32-byte hex fingerprint",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"1000\",\"ds\":{\"action\":\"BRIDGE_L1_DEPOSIT\",\"ref\":\"0x1234\"}}",
+      "valid": false,
+      "errors": [
+        "bridge_ref_format"
+      ]
+    },
+    {
+      "name": "bridge release with no ref",
+      "kind": "body",
+      "input": "{\"p\":\"drc-20\",\"op\":\"transfer\",\"tick\":\"DU$T\",\"amt\":\"1000\",\"ds\":{\"action\":\"BRIDGE_L1_RELEASE\"}}",
+      "valid": false,
+      "errors": [
+        "ref_required"
+      ]
+    }
+  ]
+}

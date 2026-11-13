@@ -1,0 +1,21 @@
+name: Bug report or disagreement
+description: A parser, vector or doc that gets the standard wrong.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: input
+    attributes:
+      label: The input
+      description: The tag, note script, transaction id or record.
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the spec says should happen
+    validations: { required: true }
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead
+    validations: { required: true }

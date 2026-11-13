@@ -1,0 +1,10 @@
+name: Question
+description: Ask anything about the Doge Soft Standard.
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: textarea
+    id: q
+    attributes:
+      label: Your question
+    validations: { required: true }

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/builderdogecoin/ds-standard/blob/main/schema/ds-note.schema.json",
+  "title": "ds OP_RETURN note",
+  "description": "The UTF-8 JSON pushed in a ds OP_RETURN output: exactly {\"ds\":{...}}, at most 80 bytes, one per transaction.",
+  "type": "object",
+  "properties": {
+    "ds": {
+      "$ref": "ds-tag.schema.json"
+    }
+  },
+  "required": [
+    "ds"
+  ],
+  "additionalProperties": false
+}

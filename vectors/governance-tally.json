@@ -1,0 +1,127 @@
+{
+  "description": "Quorum: participating × 10000 ≥ quorum_bps × eligible_weight. Pass: quorum, yes × 10000 ≥ approval_bps × (yes + no), and at least one yes or no counted. abstainCountsForQuorum stands for the founding config choice.",
+  "vectors": [
+    {
+      "name": "strict majority passes",
+      "input": {
+        "yes": 6,
+        "no": 4,
+        "abstain": 0,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 5001
+      },
+      "expect": {
+        "quorum": true,
+        "passed": true
+      }
+    },
+    {
+      "name": "a tie fails at 5001",
+      "input": {
+        "yes": 5,
+        "no": 5,
+        "abstain": 0,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 5001
+      },
+      "expect": {
+        "quorum": true,
+        "passed": false
+      }
+    },
+    {
+      "name": "a tie passes at 5000",
+      "input": {
+        "yes": 5,
+        "no": 5,
+        "abstain": 0,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 5000
+      },
+      "expect": {
+        "quorum": true,
+        "passed": true
+      }
+    },
+    {
+      "name": "no quorum",
+      "input": {
+        "yes": 2,
+        "no": 0,
+        "abstain": 0,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 5001
+      },
+      "expect": {
+        "quorum": false,
+        "passed": false
+      }
+    },
+    {
+      "name": "quorum exactly at the line",
+      "input": {
+        "yes": 3,
+        "no": 2,
+        "abstain": 0,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 5001
+      },
+      "expect": {
+        "quorum": true,
+        "passed": true
+      }
+    },
+    {
+      "name": "abstain does not join quorum by default",
+      "input": {
+        "yes": 3,
+        "no": 1,
+        "abstain": 3,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 5001
+      },
+      "expect": {
+        "quorum": false,
+        "passed": false
+      }
+    },
+    {
+      "name": "abstain joins quorum when the founding config says so",
+      "input": {
+        "yes": 3,
+        "no": 1,
+        "abstain": 3,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 5001,
+        "abstainCountsForQuorum": true
+      },
+      "expect": {
+        "quorum": true,
+        "passed": true
+      }
+    },
+    {
+      "name": "only abstains: quorum can hold but nothing passes",
+      "input": {
+        "yes": 0,
+        "no": 0,
+        "abstain": 10,
+        "eligible_weight": 10,
+        "quorum_bps": 5000,
+        "approval_bps": 0,
+        "abstainCountsForQuorum": true
+      },
+      "expect": {
+        "quorum": true,
+        "passed": false
+      }
+    }
+  ]
+}

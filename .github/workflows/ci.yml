@@ -1,0 +1,55 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: vectors (node ${{ matrix.node }}, ${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        node: [18, 20, 22]
+        include:
+          - os: windows-latest
+            node: 22
+          - os: macos-latest
+            node: 22
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Every vector, zero dependencies
+        run: npm test
+      - name: CLI smoke test
+        run: node bin/ds.js check '{"ds":{"action":"BUY","ref":"dogesoft.io/r_1"}}'
+        shell: bash
+      - name: JSON files parse
+        run: node -e "const fs=require('fs'); for (const d of ['schema','vectors']) for (const f of fs.readdirSync(d)) if (f.endsWith('.json')) JSON.parse(fs.readFileSync(d+'/'+f,'utf8'))"
+
+  secrets:
+    name: secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks 8.30.1
+        env:
+          GITLEAKS_VERSION: 8.30.1
+        run: |
+          curl -sSfL -o gitleaks.tgz "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf gitleaks.tgz gitleaks
+          ./gitleaks git --redact --verbose --exit-code 1 .
